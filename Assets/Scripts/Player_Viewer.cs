@@ -22,6 +22,11 @@ public class Player_Viewer : MonoBehaviour
 
     public bool confirmMenuActive = false;
 
+    [Space]
+    public string[] paths;
+
+    public int[] findValue;
+
     // Start is called before the first frame update
     void Start()
     {

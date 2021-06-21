@@ -14,6 +14,12 @@ public class Scarf_Selector : MonoBehaviour
 
     public TextMeshProUGUI scarfText;
 
+    public TextMeshProUGUI whiteLevelText;
+    public TextMeshProUGUI redLevelText;
+
+    public LengthData[] whiteScarfLength;
+    public LengthData[] redScarfLength;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +39,25 @@ public class Scarf_Selector : MonoBehaviour
         //Update scarfLength and scarf length text
         scarfLength = (int) slider.value;
         scarfText.text = "Length: " + scarfLength;
+
+        int whiteLevelIndex = 0;
+        int redLevelIndex = 0;
+
+        for (int i = 0; i < whiteScarfLength.Length; i++)
+        {
+            if (scarfLength >= whiteScarfLength[i].levelLength)
+            {
+                whiteLevelIndex = i;
+            }
+
+            if (scarfLength >= redScarfLength[i].levelLength)
+            {
+                redLevelIndex = i;
+            }
+        }
+
+        whiteLevelText.text = "White Robe in " + whiteScarfLength[whiteLevelIndex].levelName;
+        redLevelText.text = "Red Robe in " + redScarfLength[redLevelIndex].levelName;
     }
 
     public void SaveLength()
@@ -40,4 +65,11 @@ public class Scarf_Selector : MonoBehaviour
         edit.WriteBytes(16, scarfLength);
         edit.PlayClick();
     }
+}
+
+[System.Serializable]
+public class LengthData
+{
+    public string levelName;
+    public int levelLength;
 }

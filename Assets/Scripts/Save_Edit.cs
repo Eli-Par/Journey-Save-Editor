@@ -34,6 +34,7 @@ public class Save_Edit : MonoBehaviour
     public Level_Selector level;
     public Symbol_Selector symbol;
     public Player_Viewer viewer;
+    public JourneyCountUI counter;
 
     [Space]
     [Header("Misc")]
@@ -79,6 +80,18 @@ public class Save_Edit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            scarf.Startup();
+            cloak.Startup();
+            level.Startup();
+            symbol.Startup();
+            viewer.Startup();
+            counter.Startup();
+
+            PlayClick();
+        }
+
         //Change path keyboard shortcut
         if (Input.GetKeyDown(KeyCode.L))
         {
@@ -198,6 +211,7 @@ public class Save_Edit : MonoBehaviour
             level.Startup();
             symbol.Startup();
             viewer.Startup();
+            counter.Startup();
         }
         else
         {
