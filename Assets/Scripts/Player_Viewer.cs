@@ -39,8 +39,10 @@ public class Player_Viewer : MonoBehaviour
         byteArray = edit.GetAllBytes();
         ASCIIEncoding ascii = new ASCIIEncoding();
 
+		//Get the number of companions from the last game
         int companionNum = edit.GetBytes(5512);
 
+		//Read the data about the 8 companions from the file
         for (int playerNum = 0; playerNum < 8; playerNum++)
         {
             //Set Player Values
@@ -108,6 +110,7 @@ public class Player_Viewer : MonoBehaviour
         edit.PlayClick();
     }
 
+	//Resets the byte that stores how many players are in the list to 0
     public void ConfirmResetPlayer()
     {
         resetConfirmMenu.SetActive(false);

@@ -11,10 +11,10 @@ public class PlayerUI : MonoBehaviour
 
     public Player_Viewer viewer;
 
-    public string playerName;
-    public long id;
-    public int symbol;
-    public bool lastCompanion = false;
+    public string playerName; //Player name
+    public long id; //Steam id
+    public int symbol; //Player symbol index
+    public bool lastCompanion = false; //Is a companion from the last play through
 
     [Space]
     public Color lastCompColour;
@@ -36,6 +36,7 @@ public class PlayerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		//Id 0 is used to denote no data. Enable and disable the visual based on this
         if (id == 0)
         {
             nameText.enabled = false;
@@ -51,6 +52,7 @@ public class PlayerUI : MonoBehaviour
 
     }
 
+	//Called from Player_Viewer to update the player list visual
     public void Refresh()
     {
         //Get Components if they haven't yet been found
@@ -77,6 +79,7 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+	//When run copies the steam page of the user to the clipboard
     public void PlayerClicked()
     {
         //Debug.Log(id);

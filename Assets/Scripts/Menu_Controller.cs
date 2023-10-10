@@ -61,7 +61,10 @@ public class Menu_Controller : MonoBehaviour
         }
         else if (currentMenu == 1 || currentMenu == 3 || currentMenu == 5)
         {
+			//Set the goal position
             goalY = menuYOffset;
+			
+			//Change which menu parts are visible based on the menu that should appear
             if (currentMenu == 1)
             {
                 levelUI.SetActive(true);
@@ -83,7 +86,10 @@ public class Menu_Controller : MonoBehaviour
         }
         else if (currentMenu == 2 || currentMenu == 4)
         {
+			//Set the goal position
             goalY = -menuYOffset;
+			
+			//Change which menu parts are visible based on the menu that should appear
             if (currentMenu == 2)
             {
                 cloakUI.SetActive(true);

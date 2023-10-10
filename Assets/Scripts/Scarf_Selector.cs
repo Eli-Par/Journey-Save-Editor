@@ -43,6 +43,7 @@ public class Scarf_Selector : MonoBehaviour
         int whiteLevelIndex = 0;
         int redLevelIndex = 0;
 
+		//Determine the earliest level that the specified scarf length is legitimately obtainable in
         for (int i = 0; i < whiteScarfLength.Length; i++)
         {
             if (scarfLength >= whiteScarfLength[i].levelLength)
@@ -56,6 +57,7 @@ public class Scarf_Selector : MonoBehaviour
             }
         }
 
+		//Output the earliest level that the scarf length is legitimately obtainable in
         whiteLevelText.text = "White Robe in " + whiteScarfLength[whiteLevelIndex].levelName;
         redLevelText.text = "Red Robe in " + redScarfLength[redLevelIndex].levelName;
     }

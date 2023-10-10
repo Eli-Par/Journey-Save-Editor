@@ -191,21 +191,27 @@ public class Save_Edit : MonoBehaviour
     {
         PlayClick();
         
+		//Check that the file exists
         if (File.Exists(pathInputField.text) && pathInputField.text != "")
         {
             path = pathInputField.text;
 
+			//Make a copy of the save if backups are enabled
             if (backupToggle.isOn)
             {
                 File.Copy(path, path + ".backup", true);
             }
 
+			//If the path has not been stored, save it to be used next time the program is launched
             if (path != PlayerPrefs.GetString("SavePath") && path != dataPath && path != steamDataPath)
             {
                 PlayerPrefs.SetString("SavePath", path);
             }
+			
             pathInput.SetActive(false);
             if(manualPath) backupToggle.isOn = false;
+			
+			//Have all systems reset to properly use the new path
             scarf.Startup();
             cloak.Startup();
             level.Startup();
@@ -288,6 +294,7 @@ public class Save_Edit : MonoBehaviour
             return "";
         }
 
+		//Return the most recently updated file
         if (appdataTime > steamTime)
         {
             if (appdataTime > saveTime)
